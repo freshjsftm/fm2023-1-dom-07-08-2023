@@ -15,12 +15,21 @@ const [prevBtn, nextBtn] = document.querySelectorAll(
 
 img.src = slider.currentSlide;
 
-nextBtn.addEventListener('click', () => {
-  slider.currentIndex = slider.next();
-  img.src = slider.currentSlide;
-});
+const direction = 'left';
 
-prevBtn.addEventListener('click', () => {
-  slider.currentIndex = slider.prev();
-  img.src = slider.currentSlide;
-});
+// const btnHandler =
+//   (direction = 'next') =>
+//   () => {
+//     slider.currentIndex = slider[direction];
+//     img.src = slider.currentSlide;
+//   };
+
+function btnHandler(direction = 'next') {
+  return function () {
+    slider.currentIndex = slider[direction];
+    img.src = slider.currentSlide;
+  };
+}
+
+nextBtn.addEventListener('click', btnHandler('next'));
+prevBtn.addEventListener('click', btnHandler('prev'));
