@@ -1,11 +1,15 @@
+'use strict';
+const imagesDB = [
+  'https://upload.wikimedia.org/wikipedia/commons/2/27/Commander_%28Biden_dog%29_in_February_2022.jpg',
+  'https://hips.hearstapps.com/hmg-prod/images/best-guard-dogs-1588364974.jpg',
+  'https://dogtime.com/wp-content/uploads/sites/12/2023/07/GettyImages-157603003-e1690769397327.jpg',
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzU9eNjsEXgiMUr1pFn2riqug-fle6gyJmcHtqSVOuGfXj472raQa8wD9H5a58H1ptsHs&usqp=CAU',
+];
 
-const logo = document.querySelector('.logo');
+const slider = new Slider(imagesDB);
 
-function logLogo(event) {
-  console.log(event);
-  event.preventDefault();
-  console.log('logo');
-  logo.removeEventListener('click', logLogo);
-}
+const img = document.querySelector('.slide>img');
+const [prevBtn, nextBtn] = document.querySelectorAll('.slider-container>button');
 
-logo.addEventListener('click', logLogo);
+
+console.log(slider.currentSlide)
