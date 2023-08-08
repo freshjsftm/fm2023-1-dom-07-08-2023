@@ -11,5 +11,7 @@ const slider = new Slider(imagesDB);
 const img = document.querySelector('.slide>img');
 const [prevBtn, nextBtn] = document.querySelectorAll('.slider-container>button');
 
+img.src = slider.currentSlide;
+
 
 console.log(slider.currentSlide)
