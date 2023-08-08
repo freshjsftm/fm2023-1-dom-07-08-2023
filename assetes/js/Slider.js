@@ -29,9 +29,12 @@ class Slider {
     return this._collection[this._currentIndex];
   }
   next() {
-    return this._currentIndex+1;
+    return (this._currentIndex + 1) % this._collection.length;
   }
   prev() {
-    return this._currentIndex-1;
+    return (
+      (this._currentIndex - 1 + this._collection.length) %
+      this._collection.length
+    );
   }
 }

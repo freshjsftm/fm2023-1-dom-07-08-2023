@@ -9,9 +9,18 @@ const imagesDB = [
 const slider = new Slider(imagesDB);
 
 const img = document.querySelector('.slide>img');
-const [prevBtn, nextBtn] = document.querySelectorAll('.slider-container>button');
+const [prevBtn, nextBtn] = document.querySelectorAll(
+  '.slider-container>button'
+);
 
 img.src = slider.currentSlide;
 
+nextBtn.addEventListener('click', () => {
+  slider.currentIndex = slider.next();
+  img.src = slider.currentSlide;
+});
 
-console.log(slider.currentSlide)
+prevBtn.addEventListener('click', () => {
+  slider.currentIndex = slider.prev();
+  img.src = slider.currentSlide;
+});
