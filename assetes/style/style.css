@@ -7,3 +7,6 @@ img{
   min-width: 500px;
   margin: auto;
 }
+section{
+  border: 1px solid red;
+}

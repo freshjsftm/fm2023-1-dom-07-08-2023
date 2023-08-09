@@ -1,27 +1,28 @@
 'use strict';
 
 const unique = document.getElementById('unique');
+const section = unique.parentElement;
 
-const log44 = () => {
-  console.log(44);
-  unique.removeEventListener('click', log44);
+const log = (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  console.group();
+  console.log(event.target); //на кому згенерувалася подія
+  console.log(event.currentTarget); //чий обробник працює
+  console.groupEnd();
+  event.target.removeEventListener('click', log);
 };
 
-unique.addEventListener('click', log44);
-unique.addEventListener(
-  'click',
-  () => {
-    console.log('qwewqe');
-  },
-  { once: true }
-);
-unique.dispatchEvent(new MouseEvent('click'));
+unique.addEventListener('click', log);
+section.addEventListener('click', log);
+document.body.addEventListener('click', log, false);
+// document.addEventListener('click', log);
+window.addEventListener('click', log, { capture: false, once: true });
 
-const ownEvent = new Event('myEventType');
-unique.addEventListener('myEventType', () => {
-  console.log('myEvent');
-});
-
-if (Math.random() > 0.5) {
-  unique.dispatchEvent(ownEvent);
-}
+// unique.addEventListener(
+//   'click',
+//   (event) => {
+//     console.log('event');
+//   },
+//   { once: true }
+// );
