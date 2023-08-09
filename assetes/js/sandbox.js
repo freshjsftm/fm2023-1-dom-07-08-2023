@@ -44,17 +44,21 @@ function createCounter(start = 0) {
 
 //const createCounter =(start = 0) => () => ++start;
 
-let count = 7897897;
+// let count = 7897897;
 
-const counter1 = createCounter();
+// const counter1 = createCounter();
 
-console.log(typeof counter1);
-console.log(counter1());
-console.log(counter1());
-console.log(counter1());
-console.log(counter1());
+// console.log(typeof counter1);
+// console.log(counter1());
+// console.log(counter1());
+// console.log(counter1());
+// console.log(counter1());
 
-const counter2 = createCounter(100);
-console.log(counter2());
-console.log(counter2());
-console.log(counter2());
+// const counter2 = createCounter(100);
+// console.log(counter2());
+// console.log(counter2());
+// console.log(counter2());
+
+
+
+//console.dir(document)
