@@ -59,7 +59,6 @@ const btnHandler =
   (direction = 'next') =>
   () => {
     slider.currentIndex = slider[direction];
-    console.log(slider.currentIndex);
     img.src = slider.currentSlide;
   };
 
@@ -70,12 +69,20 @@ const [sliderContainer] = document.getElementsByClassName('slider-container');
 
 sliderContainer.addEventListener('wheel', (event) => {
   const { deltaY } = event;
-  event.preventDefault();
+  event.preventDefault(); // вимикаємо scroll
   if (deltaY > 0) {
     // const handler = btnHandler('next');
     // handler();
     btnHandler('next')();
   } else {
+    btnHandler('prev')();
+  }
+});
+
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowLeft') {
+    btnHandler('next')();
+  } else if (event.key === 'ArrowRight') {
     btnHandler('prev')();
   }
 });
