@@ -60,14 +60,35 @@ const imagesDB = [
 
 const slider = new Slider(imagesDB);
 
+const h2Slider = document.createElement('h2');
+h2Slider.innerText = 'Title';
+// h2Slider.className = 'slider-title';
+// h2Slider.className = 'border';
+h2Slider.classList.add('slider-title', 'border');
+// h2Slider.classList.add('border');
+
+const slide = document.querySelector('.slide');
 const img = document.querySelector('.slide>img');
 const [prevBtn, nextBtn] = document.querySelectorAll(
   '.slider-container>button'
 );
+const [sliderContainer] = document.getElementsByClassName('slider-container');
+
+const copyImg = img.cloneNode(); //create copy
+const copyH2 = h2Slider.cloneNode(true); //create copy
+
+//sliderContainer.append(h2Slider);
+//sliderContainer.prepend(h2Slider);
+// sliderContainer.insertBefore(h2Slider, slide);
+slide.insertAdjacentElement('beforebegin', h2Slider);
+slide.insertAdjacentElement('beforebegin', copyImg);
+slide.insertAdjacentElement('beforebegin', copyH2);
 
 const updateSlide = () => {
-  img.src = slider.currentSlide[0];
-  img.alt = slider.currentSlide[1];
+  const [src, title] = slider.currentSlide;
+  img.src = src;
+  img.alt = title;
+  h2Slider.innerText = title;
 };
 updateSlide();
 
@@ -80,8 +101,6 @@ const btnHandler =
 
 nextBtn.addEventListener('click', btnHandler('next'));
 prevBtn.addEventListener('click', btnHandler('prev'));
-
-const [sliderContainer] = document.getElementsByClassName('slider-container');
 
 sliderContainer.addEventListener('wheel', (event) => {
   const { deltaY } = event;
