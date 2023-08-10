@@ -39,8 +39,6 @@ class Slider {
   }
 }
 
-
-
 const imagesDB = [
   'https://upload.wikimedia.org/wikipedia/commons/2/27/Commander_%28Biden_dog%29_in_February_2022.jpg',
   'https://hips.hearstapps.com/hmg-prod/images/best-guard-dogs-1588364974.jpg',
@@ -57,21 +55,27 @@ const [prevBtn, nextBtn] = document.querySelectorAll(
 
 img.src = slider.currentSlide;
 
-const direction = 'left';
-
-// const btnHandler =
-//   (direction = 'next') =>
-//   () => {
-//     slider.currentIndex = slider[direction];
-//     img.src = slider.currentSlide;
-//   };
-
-function btnHandler(direction = 'next') {
-  return function () {
+const btnHandler =
+  (direction = 'next') =>
+  () => {
     slider.currentIndex = slider[direction];
+    console.log(slider.currentIndex);
     img.src = slider.currentSlide;
   };
-}
 
 nextBtn.addEventListener('click', btnHandler('next'));
 prevBtn.addEventListener('click', btnHandler('prev'));
+
+const [sliderContainer] = document.getElementsByClassName('slider-container');
+
+sliderContainer.addEventListener('wheel', (event) => {
+  const { deltaY } = event;
+  event.preventDefault();
+  if (deltaY > 0) {
+    // const handler = btnHandler('next');
+    // handler();
+    btnHandler('next')();
+  } else {
+    btnHandler('prev')();
+  }
+});

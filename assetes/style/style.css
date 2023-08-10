@@ -1,17 +1,13 @@
-/* img{
+img{
   width: 100%;
   object-fit: cover;
 }
+.slider-container{
+  text-align: center;
+}
 .slide{
-  width: 60%;
-  min-width: 500px;
+  width: 50%;
+  min-width: 400px;
   margin: auto;
-} */
-
-button {
-  color: aqua;
 }
 
-.flex-parent {
-  display: flex;
-}
