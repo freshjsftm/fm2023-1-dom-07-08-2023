@@ -4,7 +4,7 @@ function handleImgLoad(elemParent) {
   };
 }
 
-function stringToColour(str) {
+function stringToColour(str='') {
   let hash = 0;
   str.split('').forEach((char) => {
     hash = char.charCodeAt(0) + ((hash << 5) - hash);
@@ -43,10 +43,12 @@ function createElement(
     }
   }
   if (events) {
-    for (const [nameEvant, valueEvent] of Object.entries(events)) {
-      elem.addEventListener(nameEvant, valueEvent);
+    for (const [nameEvent, valueEvent] of Object.entries(events)) {
+      elem.addEventListener(nameEvent, valueEvent);
     }
   }
-  elem.append(...children); //spred
+  if (children) {
+    elem.append(...children);//spred
+  } 
   return elem;
 }

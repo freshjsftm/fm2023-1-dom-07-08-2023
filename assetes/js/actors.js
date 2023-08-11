@@ -6,6 +6,15 @@ const actors = [
     photo:
       'https://www.filmibeat.com/img/popcorn/profile_photos/tom-cruise-20190610151455-4602.jpge',
   },
+  {},
+  {
+    id:10,
+    name: '        ',
+  },
+  {
+    id:11,
+    name: 'Tom Rot',
+  },
   {
     id: 2,
     name: 'Robert Downey',
