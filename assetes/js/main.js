@@ -1,17 +1,8 @@
 'use strict';
 
+const messageArray = [];
 const textForm = document.getElementById('textForm');
-const textInput = textForm.textInput;
-const sendBtn = document.getElementById('sendBtn');
-//const textForm = document.forms.textForm;
-
-// sendBtn.addEventListener('click', (event) => {
-//   event.preventDefault();
-//   if (Math.random() > 0.5) {
-//     textForm.dispatchEvent(new Event('submit'));
-//   }
-//   console.log('btn -> ', event.type);
-// });
+const messages = document.getElementById('messages');
 
 textForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -20,5 +11,17 @@ textForm.addEventListener('submit', (event) => {
       textInput: { value: valueTextInput },
     },
   } = event;
-  console.log(valueTextInput);
+  const prepareValue = valueTextInput.trim();
+  if (prepareValue) {
+    messageArray.push(prepareValue);
+    const pMessage = createElement(
+      'p',
+      {},
+      document.createTextNode(prepareValue)
+    );
+    //textForm.insertAdjacentElement('afterend', pMessage);
+    messages.append(pMessage);
+    console.log(messageArray);
+    textForm.reset();
+  }
 });
