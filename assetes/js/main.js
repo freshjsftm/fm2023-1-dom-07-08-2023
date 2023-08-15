@@ -4,12 +4,16 @@
 // const patternName = new RegExp(/^[A-Z][a-z]{1,15}$/, "g");
 const patternName = new RegExp('^[A-Z][a-z]{1,15}$', 'g');
 const pattern1 = /[а-я]/gi;
+const patternTwoNumber = new RegExp('^(\\d{2})$', 'g');
+//інпут з тайпом намбер валідувати на 2 цифри
 
 const usersArray = [];
 const textForm = document.getElementById('textForm');
 const messages = document.getElementById('messages');
 const sendBtn = document.getElementById('sendBtn');
 const textInput = textForm.textInput;
+const numberInput = textForm.numberInput;
+
 textInput.focus();
 textInput.select();
 sendBtn.disabled = true;
@@ -25,6 +29,16 @@ const logEventType = (event) => {
     sendBtn.disabled = false;
   }
 }
+
+numberInput.addEventListener('input', ({target})=>{
+  if(patternTwoNumber.test(target.value)){
+    target.style.color=''
+    sendBtn.disabled = false;
+  }else{
+    target.style.color='red'
+    sendBtn.disabled = true;
+  }
+})
 
 // textInput.addEventListener('focus', logEventType);
 // textInput.addEventListener('blur', logEventType);
