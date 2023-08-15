@@ -1,25 +1,7 @@
 'use strict';
 
-const sendBtn = document.getElementById('sendBtn');
-// sendBtn.addEventListener('click', () => {});
 
-//функція, яка поступово через півсекунди виводить в консоль числа від 1 до 10
+// забрати елемент з id="text" в змінну
 
-function counter() {
-  let count = 1;
-  const idInterval = setInterval(
-    () => {
-      console.log(count++);
-      for(let i=0; i<10000;i++){
-        for(let j=0; j<10000;j++){}
-      }
-      if (count > 10) {
-        clearInterval(idInterval);
-        console.timeEnd('counter')
-      }
-    }, 
-  1000);
-}
-
-console.time('counter')
-counter()
+// зробити зворотній виклик від 10 до 1 - числа повинні змінюватися через секунду setInterval(функція яка змінює вміст елемента і зменшує число, 1000)
+// коли дійшли до 0 - зупинитися - перевіряємо коли робити clearInterval
