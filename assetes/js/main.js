@@ -3,10 +3,38 @@
 // const patternName = /^[A-Z][a-z]{1,15}$/g;
 // const patternName = new RegExp(/^[A-Z][a-z]{1,15}$/, "g");
 const patternName = new RegExp('^[A-Z][a-z]{1,15}$', 'g');
+const pattern1 = /[а-я]/gi;
 
 const usersArray = [];
 const textForm = document.getElementById('textForm');
 const messages = document.getElementById('messages');
+const sendBtn = document.getElementById('sendBtn');
+const textInput = textForm.textInput;
+textInput.focus();
+textInput.select();
+sendBtn.disabled = true;
+
+const logEventType = (event) => {
+  console.log(event.type, event.target)
+  if(pattern1.test(event.target.value)){
+    event.target.style.color='red'
+    sendBtn.disabled = true;
+  }
+  else{
+    event.target.style.color=''
+    sendBtn.disabled = false;
+  }
+}
+
+// textInput.addEventListener('focus', logEventType);
+// textInput.addEventListener('blur', logEventType);
+// textInput.addEventListener('change', logEventType);
+// textInput.addEventListener('copy', logEventType);
+// textInput.addEventListener('cut', logEventType);
+// textInput.addEventListener('paste', logEventType);
+textInput.addEventListener('input', logEventType);
+// textInput.addEventListener('select', logEventType);
+
 
 textForm.addEventListener('submit', (event) => {
   event.preventDefault();
