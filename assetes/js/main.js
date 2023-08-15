@@ -3,20 +3,23 @@
 const sendBtn = document.getElementById('sendBtn');
 // sendBtn.addEventListener('click', () => {});
 
-// console.log(1);
-// setTimeout(function timer() {
-//   console.log(3);
-// }, 0);
-// console.log(2);
-// console.log(4);
+//функція, яка поступово через півсекунди виводить в консоль числа від 1 до 10
 
-const idTimeout1 = setTimeout(() => {
-  console.log('subscribe!!!');
-}, 3000);
+function counter() {
+  let count = 1;
+  const idInterval = setInterval(
+    () => {
+      console.log(count++);
+      for(let i=0; i<10000;i++){
+        for(let j=0; j<10000;j++){}
+      }
+      if (count > 10) {
+        clearInterval(idInterval);
+        console.timeEnd('counter')
+      }
+    }, 
+  1000);
+}
 
-sendBtn.addEventListener('click', () => {
-  clearTimeout(idTimeout1);
-});
-
-
-
+console.time('counter')
+counter()
