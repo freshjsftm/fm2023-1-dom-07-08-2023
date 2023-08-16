@@ -1,7 +1,27 @@
 'use strict';
 
+const user = {
+  firstName: 'Brad',
+  lastName: 'Pitt',
+  age: 50,
+  isMale: true,
+  pett: undefined,
+  children: ['Anna', undefined, 'Tom'],
+  address: {
+    town: 'NY',
+    street: 12,
+    home: undefined,
+    qqqq:{
+      prop:12
+    }
+  },
+  ukrainen: null,
+  getFullName() {
+    return this.firstName + ' ' + this.lastName;
+  },
+  [Symbol('my symbol')]: 123,
+};
+//serialize
+const userSerialize = JSON.stringify(user);
+const userDeSerialize = JSON.parse(userSerialize);
 
-// забрати елемент з id="text" в змінну
-
-// зробити зворотній виклик від 10 до 1 - числа повинні змінюватися через секунду setInterval(функція яка змінює вміст елемента і зменшує число, 1000)
-// коли дійшли до 0 - зупинитися - перевіряємо коли робити clearInterval
