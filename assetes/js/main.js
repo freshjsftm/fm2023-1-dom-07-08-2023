@@ -1,29 +1,22 @@
 'use strict';
-console.log('start');
-setTimeout(
-  () => { //macro
-  console.log('setTimeout1');
-}, 0);
-setTimeout(
-  () => { //macro
-  console.log('setTimeout2');
-}, 0);
-const promise = new Promise((resolve, reject) => {
-  console.log('promise start');
-  resolve();
-  reject();
-  console.log('promise end');
-});
-promise
-  .then(
-    () => { //micro
-    console.log('then resolve');
-  })
-  .catch(() => {
-    console.log('catch reject');
-  })
-  .finally(
-    () => { //micro
-    console.log('finally');
-  });
-console.log('end');
+
+function handlePromise(promise) {
+  return promise
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+
+const value = 22;
+
+const promiseValue = new Promise((resolve, reject)=>{
+  resolve(value)
+})
+
+handlePromise(promiseValue);
+handlePromise(Promise.resolve(44));
+handlePromise(Promise.reject('error'));
