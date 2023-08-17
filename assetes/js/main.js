@@ -2,6 +2,8 @@
 
 const socials = new Map();
 socials.set('www.facebook.com', './assetes/icons/facebook.svg');
+socials.set('twitter.com', './assetes/icons/twitter.svg');
+socials.set('www.instagram.com', './assetes/icons/instagram.svg');
 
 const root = document.getElementById('root');
 
