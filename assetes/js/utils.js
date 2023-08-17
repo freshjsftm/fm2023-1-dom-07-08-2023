@@ -19,7 +19,7 @@ function stringToColour(str='') {
 /**
  *
  * @param {string} tag
- * @param {object} options {classNames, attributes, styles, events}
+ * @param {object} options {classNames[], attributes{}, styles{}, events{}}
  * @param  {...nodes} children
  * @returns {element}
  */

@@ -1,0 +1,29 @@
+[
+  {
+    "firstName": "Brad",
+    "lastName": "Pitt",
+    "age": 50,
+    "isMale": true,
+    "children": ["Anna", "Tom"],
+    "address": { "town": "NY", "street": 12 },
+    "ukrainen": null
+  },
+  {
+    "firstName": "Anna",
+    "lastName": "Rot",
+    "age": 20,
+    "isMale": false,
+    "children": [],
+    "address": { "town": "NY", "street": 12 },
+    "ukrainen": null
+  },
+  {
+    "firstName": "Tom",
+    "lastName": "Pitt",
+    "age": 28,
+    "isMale": true,
+    "children": ["Tim"],
+    "address": { "town": "NY", "street": 12 },
+    "ukrainen": null
+  }
+]
