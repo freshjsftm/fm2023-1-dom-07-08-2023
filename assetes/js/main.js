@@ -1,22 +1,19 @@
 'use strict';
 
-function handlePromise(promise) {
-  return promise
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
+const list = document.getElementById('list');
 
+// list.addEventListener('click', handleClick);
 
-const value = 22;
+// function handleClick({ target }) {
+//   console.log(this);
+//   console.log(target.innerText);
+// }
 
-const promiseValue = new Promise((resolve, reject)=>{
-  resolve(value)
-})
-
-handlePromise(promiseValue);
-handlePromise(Promise.resolve(44));
-handlePromise(Promise.reject('error'));
+list.addEventListener('click', ({ target }) => {
+  // console.log(target.parentElement);
+  // console.log(target.innerText);
+  // console.log(target.closest('#list'));
+  if (target.parentElement === list) {
+    target.innerText += '!';
+  }
+});
